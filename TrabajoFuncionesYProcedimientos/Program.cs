@@ -7,7 +7,81 @@ namespace TrabajoFuncionesYProcedimientos
       
         static void Main(string[] args)
         {
+            bool programaCorriendo = true;
+            do 
+            {
+                Console.WriteLine("Porfavor seleccione el ejercicio que desea ejecutar (1-6):");
+                Console.WriteLine("\n---Demostración Práctica | Declarar y definir subprogramas en C#---");
+                Console.WriteLine("1. Calcular el área de un triángulo.");
+                Console.WriteLine("2. Intercambiar dos valores.");
+                Console.WriteLine("3. Verificar si un número es par o impar.");
+                Console.WriteLine("4. Calcular subtotal, IVA y total a pagar.");
+                Console.WriteLine("\n---Lista de ejercicios: Funciones y Procedimientos en C#---");
+                Console.WriteLine("5. Contar el número de vocales en una cadena.");
+                Console.WriteLine("6. Calcular las ventas del día para una tienda.");
+                Console.WriteLine("\n0. Salir del programa.");
+                int opcion = Convert.ToInt32(Console.ReadLine());
 
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("Ejercicio 1: Calcular el área de un triángulo.");
+                        Console.WriteLine("Ingrese la base del triángulo:");
+                        double baseT = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("Ingrese la altura del triángulo:");
+                        double altura = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine($"El área del triángulo es: {CalcularAreaTriangulo(baseT, altura)}");
+                        break;
+                    case 2:
+                        Console.WriteLine("Ejercicio 2: Intercambiar dos valores.");
+                        Console.WriteLine("Ingrese el primer valor (x):");
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Ingrese el segundo valor (y):");
+                        int y = Convert.ToInt32(Console.ReadLine());
+                        Intercambiar(ref x, ref y);
+                        Console.WriteLine($"Después del intercambio: x = {x}, y = {y}");
+                        break;
+                    case 3:
+                        Console.WriteLine("Ejercicio 3: Verificar si un número es par o impar.");
+                        Console.WriteLine("Ingrese un número:");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        int resultado = VerificaciónNumPar(num);
+                        if (resultado == 1)
+                        {
+                            Console.WriteLine($"El número {num} es par.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"El número {num} es impar.");
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Ejercicio 4: Calcular subtotal, IVA y total a pagar.");
+                        Console.WriteLine("Ingrese la cantidad de productos:");
+                        int cantidad = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Ingrese el precio unitario del producto:");
+                        decimal precioUnitario = Convert.ToDecimal(Console.ReadLine());
+                        CalcularIVAyTotal(cantidad, precioUnitario);
+                        break;
+                    case 5:
+                        Console.WriteLine("Ejercicio 5: Contar el número de vocales en una cadena.");
+                        Console.WriteLine("Ingrese una cadena de texto:");
+                        string cadena = Console.ReadLine();
+                        int numVocales = NumeroDeVocales(cadena);
+                        Console.WriteLine($"El número de vocales en la cadena es: {numVocales}");
+                        break;
+                    case 6:
+                        Console.WriteLine("Ejercicio 6: Calcular las ventas del día para una tienda.");
+                        validarCantidadClientes(out int cantidadClientes);
+                        double totalVentas = VentasDelDia(cantidadClientes);
+                        Console.WriteLine($"\nEl total de ventas del día es: {totalVentas:F2}");
+                        break;
+                    case 0:
+                        Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
+                        programaCorriendo = false;
+                        break;
+                }
+            } while (programaCorriendo);
         }
       
         // Demostración Práctica | Declarar y definir subprogramas en C#
@@ -38,10 +112,11 @@ namespace TrabajoFuncionesYProcedimientos
             {
                 return 0; // El número es impar
             }
+        }
 
         // Ejercicio 4
         // Procedimiento para calcular subtotal, IVA y total
-        static void CalcularIVAyTotal(int cantidad, decimal precioUnitario)
+        public static void CalcularIVAyTotal(int cantidad, decimal precioUnitario)
         {
             decimal subtotal = cantidad * precioUnitario;
             decimal iva = subtotal * 0.15m;   // IVA del 15%
@@ -67,7 +142,7 @@ namespace TrabajoFuncionesYProcedimientos
             // Recorremos cada carácter de la cadena
             foreach (char c in cadena)
             {
-                if (vocales.Contains(c))
+                if (vocales.Contains(c.ToString()))
                 {
                     // Si el carácter es una vocal, incrementamos el contador
                     contador++;
