@@ -4,6 +4,21 @@ namespace TrabajoFuncionesYProcedimientos
 {
     internal class Program
     {
+      
+        static void Main(string[] args)
+        {
+
+        }
+      
+        // Demostración Práctica | Declarar y definir subprogramas en C#
+        // Ejercicios 1
+        static double CalcularAreaTriangulo(double baseT, double altura)
+        {
+            double area = (baseT * altura) / 2;
+            return area;
+        }
+        
+        // Ejercicio 2
         // Método para intercambiar dos valores usando ref
         static void Intercambiar(ref int x, ref int y)
         {
@@ -12,6 +27,19 @@ namespace TrabajoFuncionesYProcedimientos
             y = temp;
         }
 
+        // Ejercicio 3
+        static int VerificaciónNumPar(int num)
+        {
+            if (num % 2 == 0)
+            {
+                return 1; // El número es par
+            }
+            else
+            {
+                return 0; // El número es impar
+            }
+
+        // Ejercicio 4
         // Procedimiento para calcular subtotal, IVA y total
         static void CalcularIVAyTotal(int cantidad, decimal precioUnitario)
         {
@@ -26,6 +54,7 @@ namespace TrabajoFuncionesYProcedimientos
             Console.WriteLine($"Total a pagar: {total:F2}");    
         }
 
+        // Lista de ejercicios: Funciones y Procedimientos en C#
         // Ejercicio 4
         public static int NumeroDeVocales(string cadena)
         {
