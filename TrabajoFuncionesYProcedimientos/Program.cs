@@ -8,13 +8,14 @@ namespace TrabajoFuncionesYProcedimientos
 {
     internal class Program
     {
-        // Ejercicios 1 y 3
+        // Ejercicios 1
         static double CalcularAreaTriangulo(double baseT, double altura)
         {
             double area = (baseT * altura) / 2;
             return area;
         }
 
+        // Ejercicio 3
         static int VerificaciónNumPar(int num)
         {
             if (num % 2 == 0)
